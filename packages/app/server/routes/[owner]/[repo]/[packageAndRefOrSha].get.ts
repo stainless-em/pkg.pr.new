@@ -78,7 +78,8 @@ export default eventHandler(async (event) => {
     );
 
     setResponseHeader(event, "content-type", "application/tar+gzip");
-    // TODO: add HTTP caching
+    setResponseHeader(event, "cache-control", "public, immutable, max-age=31557600");
+
     return stream;
   }
 
